@@ -1,25 +1,23 @@
 import React from "react";
 import { View,Text,StyleSheet } from "react-native";
+import { counterEvent } from "react-native/Libraries/Performance/Systrace";
+import CounterPage from "./src/pages/counterPage";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import LoginPage from "./src/pages/LoginPage";
 
-const app = () =>{
+const stack = createStackNavigator();
+
+const App = () =>{
   return(
-    <View style={styles.mainContainer}>
-      <Text style={styles.textContainer}>hello world</Text>
-    </View>
-  )
-}
+    <NavigationContainer>
+      <stack.Navigator>
+        <stack.Screen name="Counter" component={CounterPage}/>
+        <stack.Screen name="LoginPage" component={LoginPage}/>
+      </stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
-const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  textContainer: {
-    fontWeight: "700",
-    fontSize: 16,
-    color: "red"
-  }
 
-})
-export default app;
+export default App;
