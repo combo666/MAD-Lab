@@ -8,6 +8,7 @@ const NationalizePage = () =>{
     const [userName, setUserName] = useState('');
     const handeleSubmit = () =>{
         axios.get(`https://api.nationalize.io?name=${userName}`).then((res)=>{
+            
             if(res.data.country.length){
                 console.log(res.data.country[0]);
                 setNationality(res.data.country[0]["country_id"]);
