@@ -22,7 +22,7 @@ const CounterPage = (props: any) =>{
     }
 
     const navHandeler = () =>{
-        props.navigation.navigate("LoginPage");
+        props.navigation.navigate("Login");
     }
 
     return(

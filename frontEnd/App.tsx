@@ -11,6 +11,7 @@ import CounterPage from "./src/pages/counterPage";
 import LoginPage from "./src/pages/LoginPage";
 import SettingsPage from "./src/pages/SettingsPage"
 import NationalizePage from "./src/pages/NationalizePage"
+import ProfilePage from "./src/pages/ProfilePage"
 import ChatsPage from "./src/pages/ChatsPage";
 import {AuthProvider, AuthContext} from "./src/providers/AuthProvider";
 
@@ -34,18 +35,23 @@ const App = () =>{
         {(auth)=>
           auth?.isLoggedIn ? (
             <NavigationContainer>
-              <bottom_tab.Navigator>
-                
-              </bottom_tab.Navigator>
-
-            </NavigationContainer>
+            <bottom_tab.Navigator>
+              <bottom_tab.Screen name="settings" component={SettingsPage}/>
+              <bottom_tab.Screen name="Nationalize" component={NationalizePage}/>
+              <bottom_tab.Screen name="Profile" component={ProfilePage}/>
+            </bottom_tab.Navigator>
+          </NavigationContainer>
+          ) : (
+          <NavigationContainer>
+          <stack.Navigator screenOptions={{headerShown: false}}>
+            <stack.Screen name="Counter" component={CounterPage}/>
+            <stack.Screen name="Login" component={LoginPage} />
+          </stack.Navigator>
+          </NavigationContainer>
           )
         }
-
-
       </AuthContext.Consumer>
     </AuthProvider>
-    
   );
 };
 

@@ -9,7 +9,7 @@ function ChatsPAge() {
 
     const [selectedButton, setSelectedButton] = useState(null);
 
-    const handleButtonPress = (buttonId) => {
+    const handleButtonPress = (buttonId: any) => {
         setSelectedButton(buttonId);
     };
 
